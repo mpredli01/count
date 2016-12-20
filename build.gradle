@@ -1,0 +1,50 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.4.1.RELEASE")
+        }
+    }
+
+plugins {
+    id 'com.gradle.build-scan' version '1.1.1'
+    id 'java'
+    }
+
+buildScan {
+    licenseAgreementUrl = 'https://gradle.com/terms-of-service'
+    licenseAgree = 'yes'
+    tag 'SAMPLE'
+    link 'GitHub','https://github.com/gradle/gradle-build-scan-quickstart'
+    }
+
+task init() {
+    println()
+    println 'Demo Application'
+    println 'Introducing Gradle Build Scans'
+    println new Date()
+    println()
+    }
+
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'application'
+
+mainClassName = 'org.redlich.count.CountApp'
+
+jar {
+    baseName = 'count'
+    version =  '1.0.0'
+    }
+
+repositories {
+    mavenCentral()
+    }
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+dependencies {
+    testCompile("junit:junit:4.12")
+    }
